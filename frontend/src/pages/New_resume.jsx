@@ -309,14 +309,14 @@ const New_resume = () => {
 
   const navigate = useNavigate();
 
-  const empty=()=>{
+  const empty = () => {
     // if(resumeTitle.trim()=== ""){
-      window.alert("Please enter a Resume Title first...");
-      setIsEmptyTitle(true);
-      setIsOpen(false);
-      return;
+    window.alert("Please enter a Resume Title first...");
+    setIsEmptyTitle(true);
+    setIsOpen(false);
+    return;
     //}
-  }
+  };
 
   const handleClick = () => {
     setIsOpen(true);
@@ -338,7 +338,7 @@ const New_resume = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/new-resume/${user.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/new-resume/${user.id}`,
         {
           method: "POST",
           headers: {
@@ -370,7 +370,7 @@ const New_resume = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/new-resume/${user.id}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/new-resume/${user.id}`
       );
 
       if (!response.ok) {
@@ -397,7 +397,7 @@ const New_resume = () => {
   const handleDeleteResume = async (resumeId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/new-resume/${user.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/new-resume/${user.id}`,
         {
           method: "DELETE",
           headers: {
@@ -452,7 +452,13 @@ const New_resume = () => {
                   onChange={(e) => setResumeTitle(e.target.value)}
                 />
 
-                <Close onClick={(resumeTitle.trim()=== "") ? empty : handleCreateResume}>Create</Close>
+                <Close
+                  onClick={
+                    resumeTitle.trim() === "" ? empty : handleCreateResume
+                  }
+                >
+                  Create
+                </Close>
                 <Close onClick={() => setIsOpen(false)}>Close</Close>
               </Popup>
             </Pc>
