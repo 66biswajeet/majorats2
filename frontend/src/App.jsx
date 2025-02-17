@@ -23,6 +23,10 @@ import Summary from "./Dashboard/resume/[resumeId]/edit/Summary";
 import EditResume2 from "./Dashboard/resume/[resumeId]/edit/EditResume2";
 import ResumeTemplate from "./pages/ResumeTemplate1";
 import Download from "./Dashboard/resume/[resumeId]/edit/Download";
+import AllTemplates from "./pages/All_templates";
+import Parser from "./pages/Parser";
+import ParserUi from "./pages/ParserUi";
+import ParserPart2 from "./pages/Parserpart2";
 
 const ProtectedRoute = ({ children }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -46,6 +50,10 @@ const App = () => {
         <ResumeProvider>
           <JdProvider>
             <Routes>
+              <Route path="/parser" element={<Parser />} />
+              <Route path="/parserpart2" element={<ParserPart2 />} />
+              <Route path="/parserUi" element={<ParserUi />} />
+              <Route path="/auth/login/resume5" element={<AllTemplates />} />
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />
               <Route path="/" element={<Home />} />
