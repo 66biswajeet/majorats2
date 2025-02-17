@@ -6,10 +6,10 @@ import DOMPurify from "dompurify";
 // Styled Components
 const A4Page = styled.div`
   width: 178mm;
-  padding: 2mm 10mm;
-  margin: 2mm auto;
+  padding: 0mm 10mm;
+  margin: 0 auto;
   background: white;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); */
   font-family: Arial, sans-serif;
 `;
 
@@ -27,12 +27,15 @@ const Name = styled.h1`
 const ContactInfo = styled.div`
   font-size: 10pt;
   color: #333;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  width: 100%;
 `;
 
 const Summary = styled.span`
   font-size: 10pt;
   // text-align: center;
-  margin-bottom: 5mm;
+  margin-bottom: 0mm;
 `;
 
 const Marks = styled.span`
@@ -188,8 +191,8 @@ const ResumeTemplate = () => {
       <Header>
         <Name>{selectedResume.candidateName}</Name>
         <ContactInfo>
-          <div>{selectedResume.candidateEmail}</div>
           <div>{selectedResume.candidateAddress}</div>
+          <div>{selectedResume.candidateEmail}</div>
           <div>{selectedResume.candidateNumber}</div>
         </ContactInfo>
       </Header>

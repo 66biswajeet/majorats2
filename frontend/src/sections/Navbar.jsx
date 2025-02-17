@@ -244,13 +244,9 @@ const Navbar = () => {
         >
           ATS Score
         </MenuItem>
-        {/* <MenuItem
-          as={Link}
-          to="/resume-parser"
-          active={isActive("/resume-parser")}
-        >
+        <MenuItem as={Link} to="/parserUi" active={isActive("/parserUi")}>
           Resume Parser
-        </MenuItem> */}
+        </MenuItem>
 
         <MenuBtn>
           {!isSignedIn ? (
@@ -311,13 +307,9 @@ const Navbar = () => {
             >
               ATS Score
             </MenuItem>
-            {/* <MenuItem
-              as={Link}
-              to="/resume-parser"
-              active={isActive("/resume-parser")}
-            >
+            <MenuItem as={Link} to="/parser" active={isActive("/parser")}>
               Resume Parser
-            </MenuItem> */}
+            </MenuItem>
 
             {/* <MenuBtn>
               <Button onClick={loginClick}>Log IN</Button>
