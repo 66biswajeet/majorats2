@@ -27,6 +27,8 @@ import AllTemplates from "./pages/All_templates";
 import Parser from "./pages/Parser";
 import ParserUi from "./pages/ParserUi";
 import ParserPart2 from "./pages/Parserpart2";
+import Cover_letter from "./pages/Cover_letter";
+import Cover_letter2 from "./pages/Cover_letter2";
 
 const ProtectedRoute = ({ children }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -50,6 +52,8 @@ const App = () => {
         <ResumeProvider>
           <JdProvider>
             <Routes>
+            <Route path="/cletter" element={<Cover_letter />} />
+            <Route path="/cletter2" element={<Cover_letter2 />} /> 
               <Route path="/parser" element={<Parser />} />
               <Route path="/parserpart2" element={<ParserPart2 />} />
               <Route path="/parserUi" element={<ParserUi />} />
