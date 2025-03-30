@@ -26,6 +26,8 @@ Use the following format:
             [City, State, ZIP] <br>
             [Your Phone Number] <br>
             [Your Email Address] <br>
+            </p>
+            <p>
             [Date]</p>
 
             <p><strong>Hiring Manager</strong><br>

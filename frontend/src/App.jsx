@@ -52,15 +52,27 @@ const App = () => {
         <ResumeProvider>
           <JdProvider>
             <Routes>
-            <Route path="/cletter" element={<Cover_letter />} />
-            <Route path="/cletter2" element={<Cover_letter2 />} /> 
-              <Route path="/parser" element={<Parser />} />
-              <Route path="/parserpart2" element={<ParserPart2 />} />
-              <Route path="/parserUi" element={<ParserUi />} />
+             
+              {/* <Route path="/parser" element={<Parser />} /> */}
+              
               <Route path="/auth/login/resume5" element={<AllTemplates />} />
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />
               <Route path="/" element={<Home />} />
+              <Route path="/parserpart2" element={<ProtectedRoute>
+                    <ParserPart2 />
+                  </ProtectedRoute>} />
+              <Route path="/parserUi" element={<ProtectedRoute>
+                    <ParserUi />
+                  </ProtectedRoute>} />
+              <Route path="/cletter" element={
+                <ProtectedRoute>
+                    <Cover_letter />
+                  </ProtectedRoute>} />
+              <Route path="/cletter2" element={
+                <ProtectedRoute>
+                    <Cover_letter2 />
+                  </ProtectedRoute>} />
               <Route
                 path="/new_resume"
                 element={
