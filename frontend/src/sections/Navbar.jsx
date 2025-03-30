@@ -247,6 +247,9 @@ const Navbar = () => {
         <MenuItem as={Link} to="/parserUi" active={isActive("/parserUi")}>
           Resume Parser
         </MenuItem>
+        <MenuItem as={Link} to="/cletter" active={isActive("/cletter")}>
+            Cover Letter 
+            </MenuItem>
 
         <MenuBtn>
           {!isSignedIn ? (
@@ -309,6 +312,9 @@ const Navbar = () => {
             </MenuItem>
             <MenuItem as={Link} to="/parser" active={isActive("/parser")}>
               Resume Parser
+            </MenuItem>
+            <MenuItem as={Link} to="/cletter" active={isActive("/cletter")}>
+            Cover Letter 
             </MenuItem>
 
             {/* <MenuBtn>

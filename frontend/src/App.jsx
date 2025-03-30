@@ -27,6 +27,8 @@ import AllTemplates from "./pages/All_templates";
 import Parser from "./pages/Parser";
 import ParserUi from "./pages/ParserUi";
 import ParserPart2 from "./pages/Parserpart2";
+import Cover_letter from "./pages/Cover_letter";
+import Cover_letter2 from "./pages/Cover_letter2";
 
 const ProtectedRoute = ({ children }) => {
   const { isLoaded, isSignedIn } = useUser();
@@ -50,13 +52,27 @@ const App = () => {
         <ResumeProvider>
           <JdProvider>
             <Routes>
-              <Route path="/parser" element={<Parser />} />
-              <Route path="/parserpart2" element={<ParserPart2 />} />
-              <Route path="/parserUi" element={<ParserUi />} />
+             
+              {/* <Route path="/parser" element={<Parser />} /> */}
+              
               <Route path="/auth/login/resume5" element={<AllTemplates />} />
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />
               <Route path="/" element={<Home />} />
+              <Route path="/parserpart2" element={<ProtectedRoute>
+                    <ParserPart2 />
+                  </ProtectedRoute>} />
+              <Route path="/parserUi" element={<ProtectedRoute>
+                    <ParserUi />
+                  </ProtectedRoute>} />
+              <Route path="/cletter" element={
+                <ProtectedRoute>
+                    <Cover_letter />
+                  </ProtectedRoute>} />
+              <Route path="/cletter2" element={
+                <ProtectedRoute>
+                    <Cover_letter2 />
+                  </ProtectedRoute>} />
               <Route
                 path="/new_resume"
                 element={
