@@ -29,6 +29,7 @@ import Spinner from "../components/Spinner";
 
 import Ats_meter from "./Ats_meter";
 import Footer from "../sections/Footer";
+import suggestion_prompt from "../prompts/suggestion_prompt";
 
 const Ats_score = () => {
   const [activePage, setActivePage] = useState("Score");
@@ -81,26 +82,48 @@ const Ats_score = () => {
       setIsEmptyPrompt(true);
       return;
     }
-    const fetchResponse = async () => {
-      setLoading(true);
-      try {
-        // const resume_response = await chatSession.sendMessage(
-        //   Resume_extract_prompt(prompt2) // the prompt defind in the Prompts.js file .
-        // );
-        // const resume_response = await connectOpenAIAPI(
-        //   Resume_extract_prompt(prompt2) // the prompt defind in the Prompts.js file .
-        // );
-        // setResponse(resume_response.response.text()); // response hook have the generated response from the gemini .
-        setResponse("Null"); // response hook have the generated response from the gemini .
-        // setResponse(resume_response); // response hook have the generated response from the gemini .
-      } catch (error) {
-        console.error("Error fetching response:", error);
-      }
-      setLoading(false);
-    };
+  //   const fetchResponse = async () => {
+  //     setLoading(true);
+  //     try {
+  //       // const resume_response = await chatSession.sendMessage(
+  //       //   Resume_extract_prompt(prompt2) // the prompt defind in the Prompts.js file .
+  //       // );
+  //       // const resume_response = await connectOpenAIAPI(
+  //       //   Resume_extract_prompt(prompt2) // the prompt defind in the Prompts.js file .
+  //       // );
+  //       // setResponse(resume_response.response.text()); // response hook have the generated response from the gemini .
+  //       setResponse("Null"); // response hook have the generated response from the gemini .
+  //       // setResponse(resume_response); // response hook have the generated response from the gemini .
+  //     } catch (error) {
+  //       console.error("Error fetching response:", error);
+  //     }
+  //     setLoading(false);
+  //   };
 
-    fetchResponse();
-  }, []);
+  //   fetchResponse();
+  // }, []);
+
+  const fetchResponse = async () => {
+    setLoading(true);
+    try {
+      const resume_response = await chatSession.sendMessage(
+        suggestion_prompt(prompt2, prompt1) // the prompt defind in the Prompts.js file .
+      );
+      // const resume_response = await connectOpenAIAPI(
+      //   Resume_extract_prompt(prompt2) // the prompt defind in the Prompts.js file .
+      // );
+      setResponse(resume_response.response.text()); // response hook have the generated response from the gemini .
+      // setResponse("Null"); // response hook have the generated response from the gemini .
+      // setResponse(resume_response); // response hook have the generated response from the gemini .
+    } catch (error) {
+      console.error("Error fetching response:", error);
+    }
+    setLoading(false);
+  };
+
+  fetchResponse();
+}, []);
+
 
   // optional (for testing purpose) //
   // useEffect(() => {
@@ -165,6 +188,7 @@ const Ats_score = () => {
                 <ContentLayout>
                   {response && (
                     <ResumeLayout>
+                      Suggestions to improve ATS score of the resume:
                       <div
                         dangerouslySetInnerHTML={{
                           __html: formatResponse(response),
@@ -285,6 +309,9 @@ const ResumeLayout = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding: 30px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--third-color);
 
   @media (max-width: 1200px) {
     padding: 30px 5px;
@@ -298,6 +325,7 @@ const ResumeLayout = styled.div`
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
     margin-bottom: 20px;
+    //font-size: 30px;
   }
 
   .name {
@@ -364,8 +392,10 @@ const ResumeLayout = styled.div`
 
   li {
     margin-bottom: 8px;
-
-    font-size: 10px;
+    font-size: 15px;
+    font-style: normal;
+    color: var(--secondary-color);
+    
   }
 
   p {
@@ -373,8 +403,9 @@ const ResumeLayout = styled.div`
     font-size: 12px;
   }
   a {
-    font-size: 12px;
+    font-size: 12 px;
   }
+
 `;
 
 export default Ats_score;
