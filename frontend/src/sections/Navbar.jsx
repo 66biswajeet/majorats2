@@ -310,7 +310,7 @@ const Navbar = () => {
             >
               ATS Score
             </MenuItem>
-            <MenuItem as={Link} to="/parser" active={isActive("/parser")}>
+            <MenuItem as={Link} to="/parserUi" active={isActive("/parser")}>
               Resume Parser
             </MenuItem>
             <MenuItem as={Link} to="/cletter" active={isActive("/cletter")}>

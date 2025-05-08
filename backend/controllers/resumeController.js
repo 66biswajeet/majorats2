@@ -27,7 +27,7 @@ const { v4: uuidv4 } = require("uuid"); // To generate unique resume IDs
 // };
 
 /////////////////////////////////  add resume 2 ///////////////////////////////////
-
+//create
 const addResume = async (req, res) => {
   const { userId } = req.params; // Extract userId from URL params
   const {
@@ -78,7 +78,7 @@ const addResume = async (req, res) => {
     return res.status(500).json({ error: "Failed to add resume" });
   }
 };
-
+//read
 // Controller to get all resumes for a specific user
 const getResumeDetails = async (req, res) => {
   const { userId } = req.params; // Extract userId from URL params
@@ -109,7 +109,7 @@ const getResumeDetails = async (req, res) => {
     res.status(500).send("Error fetching resumes.");
   }
 };
-
+//delete
 // Controller to delete a specific resume by resumeId (provided in the body)
 const deleteResume = async (req, res) => {
   const { userId } = req.params; // Extract userId from URL params
@@ -139,7 +139,7 @@ const deleteResume = async (req, res) => {
     return res.status(500).json({ error: "Failed to delete resume" });
   }
 };
-
+//update
 const updateResume = async (req, res) => {
   const { userId } = req.params;
   const { resumeData } = req.body; // Extract resumeData from the request body
